@@ -45,9 +45,9 @@ double MinElement(double[] arr)
     return min;
 }
 
-double DifferenceMaxMinElement(double max, double min)
+double DifferenceElement(double max, double min)
 {
-    double difference = Math.Round((max-min), 1, MidpointRounding.ToZero);
+    double difference = Math.Round((max - min), 1, MidpointRounding.ToZero);
     return difference;
 }
 
@@ -57,6 +57,6 @@ double[] array = CreateArrayRndDouble(4, 1, 50);
 PrintArrayDouble(array);
 double minElement = MinElement(array);
 double maxElement = MaxElement(array);
-double differenceMaxMinElement = MaxElement(array) - MinElement(array);
+double differenceElement = DifferenceElement(maxElement, minElement);
 Console.WriteLine();
-Console.WriteLine($"Разница между максимальным элементом {maxElement} и минимальным {minElement} равна {differenceMaxMinElement}");
+Console.WriteLine($"Разница между максимальным {maxElement} и минимальным элементов {minElement} равна {differenceElement}");

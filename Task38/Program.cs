@@ -9,17 +9,18 @@ double[] CreateArrayRndDouble(int size, int min, int max)
     Random rnd = new Random();
     for (int i = 0; i < arr.Length; i++)
     {
-        arr[i] = rnd.NextDouble() * (max - min) + min;
+        arr[i] = Math.Round((rnd.NextDouble() * (max - min) + min),1, MidpointRounding.ToZero);   
     }
     return arr;
 }
-
+// Console.WriteLine(Math.Round(rnd.NextDouble() * (max - min) + min),1, MidpointRounding.ToZero)
+// rnd.NextDouble() * (max - min) + min;  
 void PrintArrayDouble(double[] arr)
 {
     Console.Write("[");
     for (int i = 0; i < arr.Length; i++)
     {
-        if (i < arr.Length - 1) Console.Write($"{arr[i]}, ");
+        if (i < arr.Length - 1) Console.Write($"{arr[i]}; ");
         else Console.Write($"{arr[i]}");
     }
     Console.Write("]");

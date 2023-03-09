@@ -5,7 +5,7 @@
 //   1  -3,3    8   -9,9
 //   8   7,8  -7,1     9
 
-  double[,] CreateMatrixRndDouble(int rows, int columns, int min, int max)
+double[,] CreateMatrixRndDouble(int rows, int columns, int min, int max)
 {
     double[,] matrix = new double[rows, columns];    //0,  1
     Random rnd = new Random();

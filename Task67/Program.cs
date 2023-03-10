@@ -20,3 +20,4 @@ int SumDigits(int num)
     }
     else return 0;
 }
+

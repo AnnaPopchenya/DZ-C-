@@ -6,14 +6,14 @@
 // 18 20
 // 15 18
 
-int[,] CreateMatrixRndInt(int rows, int columns, int min, int max)
+int[,] InitMatrix1(int rows, int columns, int min, int max)
 {
-    int[,] matrix = new int[rows, columns];    //0,  1
+    int[,] matrix = new int[rows, columns];
     Random rnd = new Random();
 
-    for (int i = 0; i < matrix.GetLength(0); i++)  //rows
+    for (int i = 0; i < matrix.GetLength(0); i++)
     {
-        for (int j = 0; j < matrix.GetLength(1); j++)  //columns
+        for (int j = 0; j < matrix.GetLength(1); j++)
         {
             matrix[i, j] = rnd.Next(min, max + 1);
         }
@@ -21,6 +21,50 @@ int[,] CreateMatrixRndInt(int rows, int columns, int min, int max)
     return matrix;
 }
 
+// int[,] CreateMatrixRndInt(int rows, int columns, int min, int max)
+// {
+//     int[,] matrix = new int[rows, columns];    //0,  1
+//     Random rnd = new Random();
+
+//     for (int i = 0; i < matrix.GetLength(0); i++)  //rows
+//     {
+//         for (int j = 0; j < matrix.GetLength(1); j++)  //columns
+//         {
+//             matrix[i, j] = rnd.Next(min, max + 1);
+//         }
+//     }
+//     return matrix;
+// }
+
+// int[,] InitMatrix2()
+// {
+//     int[,] matrix = new int[2, 2];
+//     Random rnd = new Random();
+
+//     for (int i = 0; i < matrix.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < matrix.GetLength(1); j++)
+//         {
+//             matrix[i, j] = rnd.Next(1, 10);
+//         }
+//     }
+//     return matrix;
+// }
+
+int[,] InitMatrix2(int rows, int columns, int min, int max)
+{
+    int[,] matrix = new int[rows, columns];
+    Random rnd = new Random();
+
+    for (int i = 0; i < matrix.GetLength(0); i++)
+    {
+        for (int j = 0; j < matrix.GetLength(1); j++)
+        {
+            matrix[i, j] = rnd.Next(min, max + 1);
+        }
+    }
+    return matrix;
+}
 void PrintMatrix(int[,] matrix)
 {
     for (int i = 0; i < matrix.GetLength(0); i++)
@@ -33,28 +77,32 @@ void PrintMatrix(int[,] matrix)
     }
 }
 
-void MultipluMatrix(int[,] matrix1, int[,] matrix2, int[,] matrix3)
+void MultiplyMatrix(int[,] Matrix1, int[,] Matrix2, int[,] Matrix3)
 {
-    int[,] matrix3 = new int[i, k];
-    for (int i = 0; i < matrix3.GetLength(0); i++)
     {
-        for (int j = 0; j < matrix3.GetLength(1); j++)
+        for (int i = 0; i < Matrix3.GetLength(0); i++)
         {
-            int sum = 0;
-            for (int k = 0; k < matrix1.GetLength(1); k++)
+            for (int j = 0; j < Matrix3.GetLength(1); j++)
             {
-                sum += Martrix1[i, k] * matrix2[k, j];
+                int sum = 0;
+                for (int k = 0; k < Matrix1.GetLength(1); k++)
+                {
+                    sum += Matrix1[i, k] * Matrix2[k, j];
+                }
+                Matrix3[i, j] = sum;
             }
-            matrix3[i, j] = sum;
         }
     }
 }
 
-int[,] array2d = CreateMatrixRndInt(3, 3, 0, 10);
-PrintMatrix(array2d);
-Console.WriteLine();
-int[,] array2d2 = CreateMatrixRndInt(3, 3, 0, 10);
-PrintMatrix(array2d2);
-MultiplyMatrix(Matrix1, Matrix2, Matrix3);
+Console.WriteLine("Первая матрица: ");
+int[,] matrix1 = InitMatrix1(2, 2, 0, 5);
+PrintMatrix(matrix1);
+Console.WriteLine("Вторая матрица");
+int[,] matrix2 = InitMatrix2(2, 2, 0, 5);
+PrintMatrix(matrix2);
+int[,] matrix3 = new int[2, 2];
+MultiplyMatrix(matrix1, matrix2, matrix3);
 Console.WriteLine($"Произведение первой и второй матриц:");
-PrintMatrix(Matrix3);
+PrintMatrix(matrix3);
+

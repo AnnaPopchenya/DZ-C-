@@ -9,7 +9,7 @@ Console.WriteLine("Введите  число: ");
 int number = int.Parse(Console.ReadLine());
 
 int sumDigits = SumDigits (number);
-Console.WriteLine($"Сумма цифр числа {number} ->  {sumNumber}");
+Console.WriteLine($"Сумма цифр числа {number} ->  {sumDigits}");
 
 
 int SumDigits(int num)
